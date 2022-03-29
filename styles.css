@@ -11,7 +11,7 @@
 :root {
   --bodyFont: "Space Mono", monospace;
   --fontSizeInput: 24px;
-  --Strongcyan: hsl(172, 67%, 45%);
+  --Strongcyan: #26c0ab;
   --Verydarkcyan: hsl(183, 100%, 15%);
   --Darkgrayishcyan: hsl(186, 14%, 43%);
   --Grayishcyan: hsl(184, 14%, 56%);
@@ -27,9 +27,11 @@ body {
 }
 .tip-calculator {
   background: var(--Lightgrayishcyan);
-  min-height: 100vh;
   display: grid;
   place-items: center;
+}
+.tip-title {
+  padding: 3rem;
 }
 .main-center {
   /* margin-top: rem; */
@@ -41,9 +43,16 @@ body {
   display: block;
   text-transform: capitalize;
   color: var(--Verydarkcyan);
+  padding-bottom: 0.5rem;
 }
+
 .tip-info {
   padding: 1rem;
+}
+.tip-info h4 {
+  padding-bottom: 0.5rem;
+  color: var(--Verydarkcyan);
+  font-weight: normal;
 }
 .form-control {
   margin-bottom: 1.5rem;
@@ -54,6 +63,7 @@ body {
 }
 .form-input {
   display: block;
+  width: 100%;
   font-size: var(--fontSizeInput);
   padding: 0.25rem 0.75rem;
   color: var(--Verydarkcyan);
@@ -61,17 +71,22 @@ body {
   border-radius: 0.5rem;
   border: transparent;
 }
-.form-input:focus {
-  border: transparent;
-}
 .form-input::placeholder {
   font-size: 1rem;
   color: var(--Lightgrayishcyan);
+}
+.form-info {
+  display: flex;
+  justify-content: space-between;
+}
+.form-info p {
+  color: red;
 }
 .tip-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 .tip-btn {
   background: var(--Verydarkcyan);
@@ -84,6 +99,10 @@ body {
   transition: var(--transition);
   font-weight: 700;
   font-family: var(--bodyFont);
+}
+.tip-btn::after {
+  content: "%";
+  inset: 0;
 }
 .tip-btn:last-child {
   background: var(--Verylightgrayishcyan);
@@ -139,6 +158,35 @@ body {
 }
 .reset-btn:hover {
   background: var(--Lightgrayishcyan);
+}
+@media screen and (min-width: 768px) {
+  .tip-calculator {
+    min-height: 100vh;
+  }
+  .tip-title {
+    padding: 0;
+  }
+  .main-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: -10rem;
+  }
+  .tip-calculation {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+  }
+  .tip-total,
+  .tip-amount {
+    align-self: flex-start;
+  }
+  .reset-btn {
+    align-self: flex-end;
+    font-size: 1.3rem;
+  }
+  .value {
+    font-size: 1.7rem;
+  }
 }
 
 /* javascript */
